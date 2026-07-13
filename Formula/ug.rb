@@ -2,7 +2,7 @@
 class Ug < Formula
   desc "Safe, scriptable Godot version manager"
   homepage "https://github.com/RafaelVidaurre/use-godot"
-  version "0.2.0"
+  version "0.2.0" if OS.linux?
   if OS.mac?
     if Hardware::CPU.arm?
       url "https://github.com/RafaelVidaurre/use-godot/releases/download/v0.2.0/use-godot-aarch64-apple-darwin.tar.xz"

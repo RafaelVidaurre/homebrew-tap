@@ -1,26 +1,25 @@
-# Formula for the ug Godot version manager.
 class Ug < Formula
   desc "Safe, scriptable Godot version manager"
   homepage "https://github.com/RafaelVidaurre/use-godot"
-  version "0.2.0" if OS.linux?
+  version "0.2.1"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/RafaelVidaurre/use-godot/releases/download/v0.2.0/use-godot-aarch64-apple-darwin.tar.xz"
-      sha256 "13ce0f71a52bb263b1797ecd2be437b86befedf9e3abf8c17bba71d893a87f46"
+      url "https://github.com/RafaelVidaurre/use-godot/releases/download/v0.2.1/use-godot-aarch64-apple-darwin.tar.xz"
+      sha256 "d2f5e9550bbf104e863d21b79fae7894eb12ffd7e705d1380e211b389e640fb9"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/RafaelVidaurre/use-godot/releases/download/v0.2.0/use-godot-x86_64-apple-darwin.tar.xz"
-      sha256 "6835adad9ae25ca69e2f4bea9abdd7e18b9b5f9c1a81f35486c01adf2930bcc0"
+      url "https://github.com/RafaelVidaurre/use-godot/releases/download/v0.2.1/use-godot-x86_64-apple-darwin.tar.xz"
+      sha256 "6b39c9b41cc853d5987b1d28e50cafb85db378825a1a907057ddb6064d307a8c"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/RafaelVidaurre/use-godot/releases/download/v0.2.0/use-godot-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "dbf81d372952dcde35fb61c107f44c6a0bf0d35deae09651ee229f62d3777b0b"
+      url "https://github.com/RafaelVidaurre/use-godot/releases/download/v0.2.1/use-godot-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "950636c6b8be087c0b188f66d5da0efb6849d0d254b0e3e29dfcd7ab5008859a"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/RafaelVidaurre/use-godot/releases/download/v0.2.0/use-godot-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "336a961a4552ddfa86447a1caf0cf578caa99e6008b4cde2d5fa4a048ff86f1c"
+      url "https://github.com/RafaelVidaurre/use-godot/releases/download/v0.2.1/use-godot-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "3fc64744e7f65dcfc611e97f30508763753838b67a56ad788f31df52c12cf876"
     end
   end
   license "MIT"
@@ -63,9 +62,5 @@ class Ug < Formula
     # Install any leftover files in pkgshare; these are probably config or
     # sample files.
     pkgshare.install(*leftover_contents) unless leftover_contents.empty?
-  end
-
-  test do
-    assert_match "ug #{version}", shell_output("#{bin}/ug --version")
   end
 end

@@ -1,7 +1,8 @@
+# Formula for the ug Godot version manager.
 class Ug < Formula
   desc "Safe, scriptable Godot version manager"
   homepage "https://github.com/RafaelVidaurre/use-godot"
-  version "0.2.2"
+  version "0.2.2" if OS.linux?
   if OS.mac?
     if Hardware::CPU.arm?
       url "https://github.com/RafaelVidaurre/use-godot/releases/download/v0.2.2/use-godot-aarch64-apple-darwin.tar.xz"
@@ -70,5 +71,8 @@ class Ug < Formula
     # Install any leftover files in pkgshare; these are probably config or
     # sample files.
     pkgshare.install(*leftover_contents) unless leftover_contents.empty?
+  end
+  test do
+    assert_match "ug #{version}", shell_output("#{bin}/ug --version")
   end
 end
